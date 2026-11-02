@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\linespread{1.15}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{mathabx}
+\usepackage{pgffor}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usetikzlibrary{positioning}
+\usepackage[
+    backend=biber,
+    style=apa
+]{biblatex}
+\addbibresource{referencias.bib}
+\tcbuselibrary{skins,breakable}
+\defbibheading{bibliography}[\bibname]{%
+    \section*{\Large\bfseries #1}
+}
+\definecolor{colorprimario}{cmyk}{0.81,0.62,0.00,0.22}
+\definecolor{colorsecundario}{cmyk}{0.10,0.05,0.00,0.55}
+\definecolor{colorfondo}{RGB}{245,247,250}
+\definecolor{colorrespuesta}{cmyk}{0.00,0.35,0.65,0.10}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small Computación Distribuida 2027-1}
+\fancyhead[R]{\small Tarea 2}
+\fancyfoot[C]{\thepage}
+
+\title{Tarea 2: Matematicas para las las Ciencias Aplicadas 3}
+
+\author{
+  Hernández Vázquez Diego \\
+  Alan Blancas Ochoa \\
+  Ernesto Alonso Carranza Ochoa \\
+  Daniela Crisel Cabrera Galindo 
+}
+
+\setlist[description]{
+    style=unboxed,
+    font=\bfseries,
+    leftmargin=0pt
+}
+
+\newcounter{ejercicio}
+\newcounter{respuesta}
+
+\titleformat{name=\section}[block]
+  {}{}{0pt}{}
+
+\newtcolorbox{cajaejercicio}{
+    enhanced,
+    breakable,
+    colback=colorfondo,
+    colframe=colorprimario,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=colorprimario,
+    title={Ejercicio \thepage},
+}
+
+\newenvironment{ejercicio}{%
+\refstepcounter{ejercicio}%
+\par\bigskip
+\noindent
+\begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=colorfondo,
+    colframe=colorprimario,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=colorprimario,
+    title={Ejercicio \theejercicio}
+]
+}{%
+\end{tcolorbox}
+\par\smallskip
+}
+
+\newenvironment{respuesta}{%
+\refstepcounter{respuesta}%
+\par\smallskip
+\noindent
+\begin{tcolorbox}[
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=colorrespuesta,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=8pt, right=8pt, top=6pt, bottom=6pt,
+    fonttitle=\bfseries\large,
+    coltitle=white,
+    colbacktitle=colorrespuesta,
+    title={Respuesta \therespuesta}
+]
+}{%
+\end{tcolorbox}
+\par\bigskip
+}
+
+\begin{document}
+
+\begin{center}
+
+{\Large\bfseries Universidad Nacional Autónoma de México}\\[2pt]
+Facultad de Ciencias\\[10pt]
+{\large\bfseries Matematicas para las Ciencias Aplicadas 3}\\
+{\large\bfseries Tarea 2}\\[10pt]
+
+\begin{tabular}{c}
+Alan Blancas Ochoa \quad (316227364) \\
+Ernesto Alonso Carranza Ochoa \quad (32298601) \\
+Daniela Crisel Cabrera Galindo \quad (32228058) \\
+Hernández Vázquez Diego \quad (320309935)
+\end{tabular}
+
+\vspace{6pt}
+\hrule
+
+\end{center}
+
+\vspace{10pt}
+
+\foreach \n in {1,...,8}{
+\input{ejercicio\n.tex}
+}
+
+\newpage
+\nocite{*}
+\printbibliography[title={Referencias}]
+
+\end{document}
