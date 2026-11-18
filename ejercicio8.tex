@@ -11,5 +11,39 @@ No es necesario que resuelvan las integrales que propongan. Pero deben argumenta
 \end{ejercicio}
 
 \begin{respuesta}
-    \textbf{Integrantes involucrados: }
+    \textbf{Integrantes involucrados:Diego Hernandez Vazquez, }
+
+
+    \begin{enumerate}
+    \item[(a)] \textbf{Coordenadas esféricas en lugar de cartesianas.}
+    
+    \textbf{Ejemplo:} Evaluar la integral $\iiint_E e^{(x^2+y^2+z^2)^{3/2}} \, dV$, donde $E$ es la esfera unitaria sólida definida por $x^2+y^2+z^2 \leq 1$.
+    
+    
+    Si intentamos usar coordenadas cartesianas, la integral se plantea como:
+    \[ \int_{-1}^{1} \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} \int_{-\sqrt{1-x^2-y^2}}^{\sqrt{1-x^2-y^2}} e^{(x^2+y^2+z^2)^{3/2}} \, dz \, dy \, dx \]
+    En cartesianas no conviene porque los límites de integración involucran raíces cuadradas anidadas que complican la evaluación, y la función $e^{(x^2+y^2+z^2)^{3/2}}$ no tiene antiderivada respecto a $z$, $y$ o $x$. 
+    
+    En cambio, en \textbf{coordenadas esféricas}, la región $E$ se describe con límites constantes: $0 \leq \rho \leq 1$, $0 \leq \theta \leq 2\pi$, $0 \leq \phi \leq \pi$ y se simplifica a $e^{(\rho^2)^{3/2}} = e^{\rho^3}$, y gracias al diferencial de volumen $dV = \rho^2 \sin\phi \, d\rho \, d\phi \, d\theta$, obtenemos el factor $\rho^2$, permitiendo resolver la integral respecto a $\rho$ con una sustitución $u = \rho^3$.
+
+    \item[(b)] \textbf{Coordenadas cartesianas en lugar de cilíndricas.}
+    
+    \textbf{Ejemplo:} Evaluar la integral $\iiint_E (x^2 + y) \, dV$, donde $E$ es la caja rectangular definida por $0 \leq x \leq 1$, $0 \leq y \leq 2$ y $0 \leq z \leq 3$.
+    
+    En coordenadas \textbf{cartesianas}, son planos ortogonales a los ejes, lo que resulta en límites constantes:
+    \[ \int_{0}^{3} \int_{0}^{2} \int_{0}^{1} (x^2 + y) \, dx \, dy \, dz \]
+    Esto hace que la integración iterada sea directa y trivial.
+    
+    Por otro lado, si usáramos coordenadas cilíndricas ($x = r\cos\theta$, $y = r\sin\theta$), los límites para el radio $r$ dependerían del ángulo $\theta$ debido a las caras planas $x=1$ y $y=2$ (por ejemplo, $r = \sec\theta$ o $r = 2\csc\theta$). Esto obligaría a dividir la integral en múltiples subregiones dependiendo del rango del ángulo $\theta$.
+
+    \item[(c)] \textbf{Otro sistema de coordenadas}
+    
+    \textbf{Ejemplo:} Evaluar la integral doble $\iint_R (x-y)^2 \sin^2(x+y) \, dA$, donde $R$ es la región por las rectas $x-y=1$, $x-y=3$, $x+y=0$ y $x+y=2$.
+    
+    En este caso, ni las coordenadas cartesianas, ni las polares/cilíndricas, ni las esféricas son convenientes. En cartesianas, la región está rotada respecto a los ejes, lo que obligaría a partir la integral doble en hasta tres integrales distintas para describir las fronteras superior e inferior, sumado a que el integrando $(x-y)^2 \sin^2(x+y)$ sería muy laborioso de expandir e integrar de forma directa.
+    
+    Lo más conveniente es proponer un sistema definido por las fronteras de la región:
+    \[ u = x-y \quad \text{y} \quad v = x+y \]
+    Bajo esta transformación, la región de integración $R$ se mapea en un rectángulo perfecto en el plano $uv$ con límites de integración constantes: $1 \leq u \leq 3$ y $0 \leq v \leq 2$. Además, el complicado integrando se reduce drásticamente a $u^2 \sin^2(v)$. Este sistema "personalizado" convierte una región sesgada y un integrando acoplado en un producto de integrales unidimensionales elementales.
+\end{enumerate}
 \end{respuesta}

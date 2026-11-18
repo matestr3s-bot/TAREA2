@@ -9,5 +9,32 @@
 \end{ejercicio}
 
 \begin{respuesta}
-     \textbf{Integrantes involucrados: }
+     \textbf{Integrantes involucrados: Diego Hernandez Vazquez, }
+
+     \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{A.jpg}
+    \caption{Integración  por $x=0$, $y=2$ y $y=\frac{x}{3}$.}
+    \label{fig:bosquejo_ej4}
+\end{figure}
+
+ \begin{itemize}[label=\textbf{--}]
+    \item \textbf{En el orden indicado ($\boldsymbol{dy\, dx}$):}
+    Tendríamos que integrar la función $x\sqrt{y^3 + 1}$ con respecto a $y$. Aquí hay un obstáculo : la función $\sqrt{y^3 + 1}$ no tiene una antiderivada elemental. Por lo tanto, es imposible evaluar esta integral utilizando integración.
+
+    \item \textbf{Invirtiendo el orden ($\boldsymbol{dx\, dy}$):} 
+    Apoyándonos en el bosquejo de la región triangular, podemos cambiar la perspectiva realizando franjas horizontales en lugar de verticales. En este nuevo orden, la variable $x$ va desde la frontera izquierda  hasta la frontera derecha y la variable $y$ se acota desde $y = 0$ hasta $y = 2$. 
+    
+    La nueva integral iterada queda planteada así:
+    \[ \int_{0}^{2} \int_{0}^{3y} x\sqrt{y^3 + 1}\, dx\, dy \]
+    
+    Al integrar primero con respecto a $x$, el término $\sqrt{y^3 + 1}$ se comporta como una simple constante. La integral de $x$ es $\frac{x^2}{2}$, y al evaluarla en los límites de $0$ a $3y$, obtenemos el término $\frac{9y^2}{2}$. Sustituyendo esto, la integral exterior se transforma en:
+    \[ \int_{0}^{2} \frac{9y^2}{2} \sqrt{y^3 + 1}\, dy \]
+    
+    Ese factor $y^2$ que surgió de la primera integración es la pieza faltante perfecta. Ahora, la integral se puede resolver de manera muy sencilla utilizando el método de sustitución, proponiendo $u = y^3 + 1$, cuyo diferencial es $du = 3y^2\, dy$.
+
+    \item \textbf{¿En qué radica la diferencia?} 
+    La diferencia radica en la \textbf{viabilidad analítica}. Mientras que el orden original presenta una barrera matemática que no se puede resolver, invertir el orden de integración nos da el factor necesario ($y^2$) para que la segunda integral sea trivial de resolver.
+\end{itemize}
+
 \end{respuesta}
