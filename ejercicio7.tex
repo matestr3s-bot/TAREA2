@@ -15,5 +15,185 @@
 \end{ejercicio}
 
 \begin{respuesta}
-    \textbf{Integrantes involucrados: }
+La región \(W\) se encuentra delimitada por la superficie
+
+\[
+f(x,y)=2e^{-(x-1)^2-y^2}
+\]
+
+y el disco
+
+\[
+x^2+y^2\leq 4.
+\]
+
+\subsection*{(a) Descripción de los contornos}
+
+El problema nos dice que tomemos de eejmplo esto:
+
+\[
+f(x,y)=1.
+\]
+
+Ahora pasamos a sustituir la funcion que tenemos y nos queda:
+
+\[
+2e^{-(x-1)^2-y^2}=1.
+\]
+
+Ahora dividimos entre \(2\):
+
+\[
+e^{-(x-1)^2-y^2}=\frac{1}{2}.
+\]
+
+Despues aplicamos el logaritmo natural, la propiedad de la función inversa entre la exponencial natural y el logaritmo natural cancela las operaciones y nos permite quedarnos con solo los exponentes, entonces nos queda: 
+
+\[
+-(x-1)^2-y^2=\ln\left(\frac{1}{2}\right).
+\]
+
+Por otra parte tenemos que: 
+
+\[
+\ln\left(\frac{1}{2}\right)=-\ln 2,
+\]
+
+Sustituyengo y multiplicando por -1 ambos lados obtenemos: 
+
+\[
+(x-1)^2+y^2=\ln 2.
+\]
+
+Recordando que la ecuación general de un círculo es
+
+\[
+(x-h)^2+(y-k)^2=r^2,
+\]
+
+podemos escribir la ecuación obtenida como
+
+\[
+(x-1)^2+(y-0)^2=\ln 2.
+\]
+
+Al comparar ambas ecuaciones, tenemos
+
+\[
+h=1,\qquad k=0.
+\]
+
+Por lo tanto, el centro del contorno es
+
+\[
+{(1,0)}
+\]
+
+y su radio es
+
+\[
+{\sqrt{\ln 2}}.
+\]
+
+
+Por otra parte, si tenemos \(f(x,y)=c\) entonces los contornos están dados por
+
+\[
+(x-1)^2+y^2=\ln\left(\frac{2}{c}\right).
+\]
+Entonces podemos decir que todos los contornos estarán centrados en (1,0), y para que el contorno exista debemos tener que \(0<c\leq 2\). Si \(c=2\), el contorno se reduce al punto \((1,0)\), que es el máximo de \(f\).Si \(c>2\) no hay contorno.
+
+\subsection*{(b) Área de la sección correspondiente al plano \(x=1\)}
+
+Tenemos el plano: 
+
+\[
+x=1.
+\]
+
+Entonces ahora lo sustituimos en (x=1) en la función y nos queda: 
+
+\[
+f(1,y)=2e^{-(1-1)^2-y^2}
+=2e^{-y^2}.
+\]
+
+Para obtener los limites de \(y\), utilizamos el disco: 
+
+\[
+x^2+y^2\leq4.
+\]
+
+Ahora volvemos a sustituir a x=1 y tenemos: 
+
+\[
+1+y^2\leq4,
+\]
+
+Estonces: 
+
+\[
+y^2\leq3.
+\]
+
+De manera que nos queda: 
+
+\[
+-\sqrt{3}\leq y\leq\sqrt{3}.
+\]
+Entonces la region W se encuentra entre el plano (z=0) y la superficie (z=f(x,y)), sobre el disco (x^2+y^2\leq4).
+Cuando cortamos a W con el plano (x=1), la sección es la región del plano (x=1) comprendida entre (z=0) y la curva (z=2e^{-y^2}), con
+
+\[
+-\sqrt{3}\leq y\leq\sqrt{3}.
+\]
+
+Por lo tanto, el área de esta sección es:
+
+\[
+A=\int_{-\sqrt{3}}^{\sqrt{3}}2e^{-y^2},dy.
+\]
+\subsection*{(c) Escriban la integral iterada doble que de el volumen de W}
+
+Tenemos lo siguiente: 
+\[
+f(x,y)=2e^{-(x-1)^2-y^2}
+\]
+y la superficie está sobre la región
+\[
+x^2+y^2\leq 4.
+\]
+Esto representaria un circulo de radio de 2.
+Como \(f(x,y)>0\), el sólido \(W\) queda entre el plano \(z=0\) y la superficie
+\(z=f(x,y)\), entonces podemos obtener el volumen mediante la integral doble:
+Por lo tanto,
+\[
+V=\iint_R f(x,y)\,dA.
+\]
+En donde R seria el disco definido por:
+\[
+x^2+y^2\leq4.
+\]
+Entonces obtenemos limites de integracion para esto despejamos \(x\):
+\[
+x^2\leq4-y^2
+\]
+\[
+-\sqrt{4-y^2}\leq x\leq\sqrt{4-y^2}.
+\]
+Además, como el círculo tiene radio \(2\):
+\[
+-2\leq y\leq2.
+\]
+Por lo tanto, la integral iterada que representa el volumen de (W) es:
+\[
+{
+V=
+\int_{-2}^{2}
+\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}
+2e^{-(x-1)^2-y^2}
+\,dx\,dy
+}
+\]
+    \textbf{Integrantes involucrados: Alan Blancas Ochoa }
 \end{respuesta}
