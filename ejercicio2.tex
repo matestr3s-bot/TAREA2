@@ -1,5 +1,5 @@
 \begin{ejercicio}
-    En la siguiente figura se muestran las temperaturas en $^\circ\text{C}$ medidas sobre curvas dentro de un cuarto de $5\,\text{m} \times 5\,\text{m}$. Usando sumas de Riemann, propongan 2 formas distintas de estimar la temperatura promedio del cuarto y expliquen con mucho detalle qué necesitarían para poder hacer una estimación más precisa.
+En la siguiente figura se muestran las temperaturas en $^\circ\text{C}$ medidas sobre curvas dentro de un cuarto de $5\,\text{m} \times 5\,\text{m}$. Usando sumas de Riemann, propongan 2 formas distintas de estimar la temperatura promedio del cuarto y expliquen con mucho detalle qué necesitarían para poder hacer una estimación más precisa.
 \end{ejercicio}
 
 \begin{respuesta}
@@ -15,12 +15,10 @@ Una cosa que debemos tomar en cuenta es que no tenemos a $T(x,y)$ de forma expli
 \[
 \iint_R T(x,y)\,dA\approx\sum_{i=1}^{m}\sum_{j=1}^{n}T(x_{ij}^*,y_{ij}^*)\,\Delta A
 \]
-En donde \((x_{ij}^*,y_{ij}^*)\) son los puntos de muestra (en este caso, los centros
-de cada subcuadro) y \(T(x_{ij}^*,y_{ij}^*)\) es la temperatura leída en ese punto
-mediante las curvas de nivel. Para cada subcuadro multiplicamos esa temperatura por
-\(\Delta A\) y al final sumamos todo.
-\textbf{Primera estimación.} Para esto tomamos la division que ya tenemos la cual tiene $25$ cuadrados de $1\times1$ m
-($\Delta A=1$) y tomamos el valor aproximado que tiene cada uno en su centro: 
+En donde \((x_{ij}^*,y_{ij}^*)\) son los puntos de muestra, en donde tomamos la temperatura aproximada en el centro de los cuadradoss y \(T(x_{ij}^*,y_{ij}^*)\) es la temperatura leída en ese punto mediante las curvas de nivel. Entonces al tomar nuestro cuadrado lo mulitplicamps por \(\Delta A\) y al final vamos sumandolos a todos.
+
+\\ \textbf{Primera estimación.} Para esto tomamos la division que ya tenemos la cual tiene $25$ cuadrados de $1\times1$ m
+($\Delta A=1$) y tomamos el valor aproximado que tiene cada uno en su centro respecto a su temperatura: 
 
 \[
 \begin{array}{c|ccccc|c}
@@ -41,7 +39,7 @@ La suma de los 25 valores es $632$, por lo que:
 T_{\mathrm{prom}}\approx\frac{632}{25}\approx{25.3^\circ C}.
 \]
 
-\textbf{Segunda estimación.} Otra cosa que podriamos hacer es dividir nuestra cuadricula  en 4 cuadrados de 2.5 x 2.5, es decir cada cuadrado tendra\Delta A = 6.25y igual tomamos la temperatura que hay en sus centros.Entonces: 
+\textbf{Segunda estimación.} Otra cosa que podriamos hacer es dividir nuestra cuadricula  en 4 cuadrados de 2.5 x 2.5, es decir cada cuadrado tendra ($\Delta A= 6.25$), tomamos la temperatura aproximada en sus centros de cada uno y entonces nos queda: 
 \[
 \begin{array}{c|c}
 \text{Centro} & T\ (^\circ C)\\\hline
@@ -58,8 +56,7 @@ T_{\mathrm{prom}}\approx\frac{632}{25}\approx{25.3^\circ C}.
 T_{\mathrm{prom}}\approx\frac{625}{25}={25^\circ C}.
 \]
 
-Para lograr una estimación más precisa, debemos tener una partición mucho más pequeña, ya que esto nos permitiría hacer que el error en nuestra suma de Riemann disminuya. Otra cosa sería tener un mayor número de curvas de nivel, ya sea teniendo una cada medio grado, es decir, cada (0.5^\circ C), para obtener lecturas más precisas respecto a la temperatura en cualquier sector de nuestra partición.También sería útil tomar mediciones directas de temperatura en los puntos de
-muestra, en lugar de estimarlas a ojo a partir de las curvas. 
+Consideramos que para lograr una estimación más precisa, debemos tener una partición mucho más pequeña, ya que esto pues nos podria permitir hacer que el error en nuestra suma de Riemann disminuya ya que los datos se han sacado basado en nuestra suposicion ya que no todos los cuadritos tenian una curva justo pasando por su centro. Otra cosa sería tener un mayor número de curvas de nivel, ya sea teniendo una cada medio grado, es decir, cada (0.5^\circ C\), para obtener lecturas más precisas respecto a la temperatura en cualquier sector de nuestra partición.También sería útil tomar mediciones directas de temperatura en los puntos de muestra, en lugar de estimarlas a ojo a partir de las curvas. 
 
  \textbf{Integrantes involucrados: Diego Hernandez Vazquez, Alan Blancas Ochoa}
 \end{respuesta}
