@@ -15,5 +15,54 @@
 \end{ejercicio}
 
 \begin{respuesta}
-    \textbf{Integrantes involucrados: }
+    \textbf{Integrantes involucrados: Daniela Crisel Cabrera Galindo }\\
+    Antes de definir los limites de integracion tenemos que analizar la imagen que se nos presenta en este ejercicio. Notemos que la region $w$ se trata de un cono con origen el el punto $(0,0,0)$\\
+    Por lo que es necesario que primero obtengamos el volumen de dicha region para poder determinar los limtes de integracion de las tres ecuaciones.\\
+    \begin{enumerate}
+        \item Obtener la ecuacion de la superficie lateral del cono
+        La ecuacion que determina la superficie lateral del cono es: $z = k \sqrt{x^2 + y^2}$\\
+        En la imagen se muestra el punto $(2,0,4)$ y se observa que la altura maxima de la figura se encuentra en el punto $z = 4$\\
+        $ \longrightarrow 4 = k \sqrt{2^2 + 0^2}$\\
+        $= k \sqrt{4}$\\
+        $ = 2k$\\
+        $ k = 2$
+        \item Obtener el valor de la base del cono
+        Sea $x^2 + y^2 \leq 4$\\ $\longrightarrow r = 2$\\
+        Podemos notar entonces que obtenemos los siguientes valores para las constantes $\theta, r$ las cuales no dependen de la altura de la region\\
+        $\theta \in [0,2 \pi]$ Es una proyeccion en el plano xy\\
+        $r \in [0,2] $     
+    \end{enumerate}
+    Por lo que hemos visto en clase observamos que es conveniente que los limites de la integral mas externa sean constantes, mientras que los limites de las integrales internas pueden depender de los variables que aun faltan por integrarse, por lo tanto continuaremos con el analisis tomando esta observacion en cuenta para ello.\\
+    \textbf{Ecuacion 3 / Coordenadas cilindricas}\\
+    \textit{Nota: En coordenadas cilindricas usamos la razon $r = \sqrt{x^2 + y ^2}$}\\
+    Si "entramos" a W de abajo hacia arriba verticalmente, primero nos encontrariamos con la pared del cono y saldriamos por la parte superior\\
+    
+    \texttt{*Limites para z}\\
+    Como $z = 2 \sqrt{x^2 + y^2}$ sustituyendo por r \\
+    $\longrightarrow z = 2r$\\De este modo tenemos que\\
+    $\int_{?}^{?} \int_{?}^{?} \int_{2r}^{4} f(r, \theta, z)\, r\, dz\, dr\, d\theta $\\
+   
+    \texttt{*Limites para r}\\
+    Desde el orgen $(0,0,0)$ hasta el borde del circulo $r=2$, se sigue que
+    $\int_{?}^{?} \int_{0}^{2} \int_{2r}^{4} f(r, \theta, z)\, r\, dz\, dr\, d\theta $\\
+    
+    \texttt{*Limites para $\theta$}\\
+    Como el cono rodea completamente el eje z y como vimos anteriormente que esta constante no depende de la altura entonces $\theta \in [0,2 \pi]$\\Por lo tanto\\
+    $\int_{0}^{2\pi} \int_{0}^{2} \int_{2r}^{4} f(r, \theta, z)\, r\, dz\, dr\, d\theta $\\
+    De este modo hemos obtenido los limites para la ecuacion 3.\\
+
+    \textbf{Ecuacion 4 / Coordenadas esfericas}\\
+    \textit{Recordemos que en coordenadas esfericas:}
+    \begin{itemize}
+        \item $\rho$: Distancia desde el origen hasta cualquier punto de $W$
+        \item $\phi$: ANgulo que se abre hacia abajo del eje z positivo, tal que  si $\phi = 0$ es apuntar verticalmente hacia arriba
+        \item $\theta$: El angulo de giro horizotal en el plano xy ya mencionado 
+    \end{itemize}
+
+    \texttt{*Limites para $\rho$}\\
+    \textit{Nota: En coordenadas esfericas $z = \rho Cos \phi$ por lo que $4 = \rho Cos \phi$ }
+    Si entramos desde el origen y subimos verticalmente hasta $z=4$\\
+    $\longrightarrow \rho = \frac{4}{Cos \phi}$\\ Por lo tanto 
+
+    $\int_{?}^{?} \int_{?}^{?} \int_{0}^{\frac{4}{Cos \phi}} g(\rho, \varphi, \theta)\, \rho^2 \sin\varphi\, d\rho\, d\varphi\, d\theta$ \\
 \end{respuesta}
