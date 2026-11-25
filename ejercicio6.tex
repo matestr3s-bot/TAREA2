@@ -1,10 +1,231 @@
 \begin{ejercicio}
-    La región $E$ se encuentra en el primer octante de $\mathbb{R}^3$. Está acotada por el cilindro parabólico $z = 6y^2$ y el cilindro elíptico $x^2 + 3y^2 = 12$. Escribe las integrales iteradas $dz\,dx\,dy$, $dx\,dz\,dy$ y $dy\,dz\,dx$ que correspondan a la integral triple
-\[
-    \iiint_E f(x, y, z)\, dV.
-\]
+    La región $E$ se encuentra en el primer octante de $\mathbb{R}^3$. Está acotada por
+    el cilindro parabólico $z = 6y^2$ y el cilindro elíptico $x^2 + 3y^2 = 12$.
+    Escribe las integrales iteradas $dz\,dx\,dy$, $dx\,dz\,dy$ y $dy\,dz\,dx$ que
+    correspondan a la integral triple
+    \[
+        \iiint_E f(x, y, z)\, dV.
+    \]
 \end{ejercicio}
 
 \begin{respuesta}
-    \textbf{Integrantes involucrados: Diego Hernandez Vazquez, }
+    \textbf{Integrantes involucrados: Ernesto Alonso Carranza Ochoa }
+
+    \bigskip
+    Tenemos dos superficies:
+    \begin{itemize}
+        \item $z = 6y^2$ es un cilindro parabólico. No aparece $x$ en la ecuación,
+              entonces la parábola $z=6y^2$ del plano $yz$ se repite a lo largo de todo
+              el eje $x$.
+        \item $x^2 + 3y^2 = 12$ es un cilindro elíptico. No aparece $z$, entonces la
+              elipse del plano $xy$ se repite a lo largo del eje $z$. Si dividimos
+              entre $12$ queda
+              \[
+                  \frac{x^2}{12} + \frac{y^2}{4} = 1 ,
+              \]
+              que es una elipse con semiejes $\sqrt{12} = 2\sqrt{3}\approx 3.46$ en $x$
+              y $2$ en $y$.
+    \end{itemize}
+    Como $E$ está en el primer octante, se cumple $x\geq 0$, $y\geq 0$, $z\geq 0$.
+    Entonces el piso de $E$ es el plano $z=0$, el techo es el cilindro parabólico
+    $z = 6y^2$  y las paredes laterales las pone el cilindro elíptico, de modo que
+    \[
+        E = \{(x,y,z) : \; x\geq 0,\; y\geq 0,\; x^2+3y^2\leq 12,\; 0\leq z\leq 6y^2\}.
+    \]
+    El punto más alto está en $x=0$, donde $3y^2=12$ da $y=2$ y entonces
+    $z = 6\cdot 2^2 = 24$. Es el pico $(0,2,24)$ que se ve en la figura.
+
+    \bigskip
+     Para escribir los límites
+    primero necesitamos saber sobre qué región $D$ del plano $xy$ está parado el sólido.
+    Es el cuarto de elipse del primer cuadrante:
+    \begin{itemize}
+        \item Si $y=0$: $x^2 = 12$, o sea $x=2\sqrt{3}$.
+        \item Si $x=0$: $3y^2 = 12$, o sea $y=2$.
+    \end{itemize}
+
+    \begin{center}
+    \begin{tikzpicture}[x=1.2cm,y=1.2cm]
+        \fill[colorprimario!15] (0,0) -- plot[domain=0:90, samples=60, variable=\t]
+              ({2*sqrt(3)*cos(\t)},{2*sin(\t)}) -- cycle;
+        \draw[thick, colorprimario] plot[domain=0:90, samples=60, variable=\t]
+              ({2*sqrt(3)*cos(\t)},{2*sin(\t)});
+        \draw[->] (-0.3,0) -- (4.2,0) node[right] {$x$};
+        \draw[->] (0,-0.3) -- (0,2.6) node[above] {$y$};
+        \fill (3.4641,0) circle (1.5pt) node[below] {$(2\sqrt{3},0)$};
+        \fill (0,2) circle (1.5pt) node[left] {$(0,2)$};
+        \node at (1.3,0.8) {$D$};
+        \node[colorprimario, right] at (2.6,1.5) {$x^2+3y^2=12$};
+    \end{tikzpicture}
+
+    \small Región $D$: proyección de $E$ en el plano $xy$.
+    \end{center}
+
+    Despejando de la elipse, $x^2 = 12-3y^2$ y como $x\geq0$ queda $x=\sqrt{12-3y^2}$.
+    Despejando al revés, $y^2 = (12-x^2)/3$ y como $y\geq 0$ queda
+    $y=\sqrt{(12-x^2)/3}$. Entonces $D$ se puede describir de dos maneras:
+    \[
+        D = \{0\leq y\leq 2,\; 0\leq x\leq \sqrt{12-3y^2}\}
+          = \{0\leq x\leq 2\sqrt{3},\; 0\leq y\leq \sqrt{(12-x^2)/3}\}.
+    \]
+
+    \bigskip
+     En una integral iterada, la variable de afuera
+    es la única que tiene límites constantes, la de en medio tiene límites que dependen
+    sólo de la de afuera y la de adentro puede depender de las otras dos. En este orden
+    la variable externa es $y$, la de en medio es $x$ y la interna es $z$.
+    \begin{enumerate}
+        \item \emph{$y$ (externa).} Mirando la región $D$ de arriba, $y$ va desde $0$
+              hasta $2$.
+        \item \emph{$x$ (en medio).} Fijamos un valor de $y$ y recorremos $D$ en dirección
+              de $x$: se entra por el eje $y$ (donde $x=0$) y se sale por la elipse
+              ($x=\sqrt{12-3y^2}$). Entonces $0\leq x\leq\sqrt{12-3y^2}$.
+        \item \emph{$z$ (interna).} Fijamos $(x,y)$ dentro de $D$ y subimos en dirección de
+              $z$: entramos por el piso $z=0$ y salimos por el cilindro parabólico
+              $z=6y^2$. Entonces $0\leq z\leq 6y^2$.
+    \end{enumerate}
+    \[
+        \boxed{\;\int_{0}^{2}\int_{0}^{\sqrt{12-3y^2}}\int_{0}^{6y^2} f(x,y,z)\; dz\,dx\,dy\;}
+    \]
+
+    \bigskip
+     Ahora la externa sigue siendo $y$, la de en
+    medio es $z$ y la interna es $x$.
+    \begin{enumerate}
+        \item \emph{$y$ (externa).} Igual que antes, $0\leq y\leq 2$.
+        \item \emph{Rebanada con $y$ fijo.} Si cortamos $E$ con un plano $y=c$ (una
+              constante), el corte vive en el plano $xz$. Ahí $x$ va de $0$ a
+              $\sqrt{12-3c^2}$ y $z$ va de $0$ a $6c^2$. Los dos límites son
+              constantes porque dependen sólo de $c$. Entonces la rebanada es un
+              \emph{rectángulo} en el plano $xz$:
+              \[
+                  [0,\sqrt{12-3c^2}]\times[0,6c^2].
+              \]
+              Como es un rectángulo, da lo mismo integrar primero en $x$ o primero
+              en $z$.
+        \item \emph{$z$ (en medio).} $0\leq z\leq 6y^2$.
+        \item \emph{$x$ (interna).} $0\leq x\leq\sqrt{12-3y^2}$.
+    \end{enumerate}
+    \[
+        \boxed{\;\int_{0}^{2}\int_{0}^{6y^2}\int_{0}^{\sqrt{12-3y^2}} f(x,y,z)\; dx\,dz\,dy\;}
+    \]
+    
+
+    \bigskip
+    Ahora la variable
+    externa es $x$, la de en medio $z$ y la interna $y$, y el cilindro parabólico
+    está escrito con $z$ en función de $y$ y no al revés.
+    \begin{enumerate}
+        \item \emph{$x$ (externa).} El valor más grande de $x$ en $E$ ocurre cuando $y=0$,
+              y es $2\sqrt{3}$. Entonces $0\leq x\leq 2\sqrt{3}$.
+        \item \emph{$y$ (interna), con $x$ y $z$ fijos.} Una recta paralela al eje $y$
+              que pasa por $(x,z)$ está dentro de $E$ cuando se cumplen las dos
+              condiciones siguientes:
+              \begin{itemize}
+                  \item $z\leq 6y^2$, o sea $y^2\geq z/6$, y como $y\geq 0$ queda
+                        $y\geq\sqrt{z/6}$. Este es el punto donde la recta
+                        \emph{entra} (en el cilindro parabólico).
+                  \item $x^2+3y^2\leq 12$, o sea $y\leq\sqrt{(12-x^2)/3}$. Este es el
+                        punto donde la recta \emph{sale} (en el cilindro elíptico).
+              \end{itemize}
+              Entonces $\sqrt{z/6}\leq y\leq\sqrt{(12-x^2)/3}$.
+        \item \emph{$z$ (en medio).} Para que exista algún $y$ en ese intervalo, el
+              extremo izquierdo no puede pasar al derecho:
+              \[
+                  \sqrt{\frac{z}{6}} \leq \sqrt{\frac{12-x^2}{3}}
+                  \iff \frac{z}{6}\leq\frac{12-x^2}{3}
+                  \iff z\leq 2(12-x^2) = 24-2x^2 .
+              \]
+              Además $z\geq 0$. Entonces $0\leq z\leq 24-2x^2$. Esta curva es justo la
+              intersección de las dos superficies vista desde el plano $xz$: si
+              $z=6y^2$ y $y^2=(12-x^2)/3$, entonces $z = 6\cdot(12-x^2)/3 = 24-2x^2$.
+              Una comprobación rápida: para $x=0$ da $z=24$ (el pico) y para
+              $x=2\sqrt{3}$ da $z=24-24=0$.
+    \end{enumerate}
+
+    \begin{center}
+    \begin{tikzpicture}[x=1.2cm,y=0.1cm]
+        \fill[colorprimario!15] (0,0) -- plot[domain=0:3.4641, samples=60, variable=\t]
+              ({\t},{24-2*\t*\t}) -- cycle;
+        \draw[thick, colorprimario] plot[domain=0:3.4641, samples=60, variable=\t]
+              ({\t},{24-2*\t*\t});
+        \draw[->] (-0.3,0) -- (4.2,0) node[right] {$x$};
+        \draw[->] (0,-2) -- (0,28) node[above] {$z$};
+        \fill (0,24) circle (1.5pt) node[left] {$(0,24)$};
+        \fill (3.4641,0) circle (1.5pt) node[below] {$(2\sqrt{3},0)$};
+        \node[colorprimario, right] at (1.9,17) {$z=24-2x^2$};
+    \end{tikzpicture}
+
+    \small Proyección de $E$ en el plano $xz$.
+    \end{center}
+    \[
+        \boxed{\;\int_{0}^{2\sqrt{3}}\int_{0}^{24-2x^2}\int_{\sqrt{z/6}}^{\sqrt{(12-x^2)/3}} f(x,y,z)\; dy\,dz\,dx\;}
+    \]
+
+    \bigskip
+    Verificación con $f(x,y,z)=1$.Si las tres integrales están bien,
+    las tres tienen que dar el mismo volumen. Lo comprobamos con la primera y la tercera.
+
+    \medskip
+    \emph{Con $dz\,dx\,dy$.} Las dos integrales de adentro con $f=1$ dan
+    \[
+        \int_{0}^{\sqrt{12-3y^2}}\int_{0}^{6y^2} dz\,dx = \int_{0}^{\sqrt{12-3y^2}} 6y^2\,dx = 6y^2\sqrt{12-3y^2},
+    \]
+    entonces
+    \[
+        V = \int_0^2 6y^2\sqrt{12-3y^2}\,dy = 6\sqrt{3}\int_0^2 y^2\sqrt{4-y^2}\,dy ,
+    \]
+    donde sacamos $\sqrt{12-3y^2}=\sqrt{3}\sqrt{4-y^2}$. Sustituimos $y=2\sin\theta$,
+    con $dy=2\cos\theta\,d\theta$ y $\sqrt{4-y^2}=2\cos\theta$ (porque $\cos\theta\geq0$ en
+    $[0,\pi/2]$). Los límites cambian así: $y=0\Rightarrow\theta=0$ y
+    $y=2\Rightarrow\theta=\pi/2$. Entonces
+    \[
+        \int_0^2 y^2\sqrt{4-y^2}\,dy = \int_0^{\pi/2} 4\sin^2\theta\cdot 2\cos\theta\cdot 2\cos\theta\, d\theta
+        = 16\int_0^{\pi/2}\sin^2\theta\cos^2\theta\, d\theta .
+    \]
+    Usamos $\sin\theta\cos\theta=\tfrac12\sin 2\theta$, de donde
+    $\sin^2\theta\cos^2\theta=\tfrac14\sin^2 2\theta=\tfrac18(1-\cos 4\theta)$:
+    \[
+        16\int_0^{\pi/2}\tfrac18(1-\cos4\theta)\,d\theta
+        = 2\left[\theta-\frac{\sin 4\theta}{4}\right]_0^{\pi/2} = 2\cdot\frac{\pi}{2} = \pi .
+    \]
+    Por lo tanto $V = 6\sqrt{3}\,\pi$.
+
+    \medskip
+    \emph{Con $dy\,dz\,dx$.} La integral interna en $y$ es
+    $\sqrt{(12-x^2)/3}-\sqrt{z/6}$. Para simplificar escribimos $a=12-x^2$, así que el
+    límite superior de $z$ es $24-2x^2=2a$. Integrando en $z$:
+    \[
+        \int_0^{2a}\left(\sqrt{\tfrac{a}{3}}-\sqrt{\tfrac{z}{6}}\right)dz
+        = \sqrt{\tfrac{a}{3}}\,(2a) - \frac{1}{\sqrt6}\cdot\frac23\,(2a)^{3/2}.
+    \]
+    El primer término es $\frac{2}{\sqrt3}a^{3/2}$. Para el segundo usamos
+    $(2a)^{3/2}=2\sqrt2\,a^{3/2}$ y $\sqrt2/\sqrt6=1/\sqrt3$:
+    \[
+        \frac{1}{\sqrt6}\cdot\frac23\cdot 2\sqrt2\,a^{3/2} = \frac{4}{3\sqrt3}\,a^{3/2}.
+    \]
+    Restando, $\left(\frac{2}{\sqrt3}-\frac{4}{3\sqrt3}\right)a^{3/2}=\frac{2}{3\sqrt3}\,a^{3/2}$. Entonces
+    \[
+        V = \frac{2}{3\sqrt3}\int_0^{2\sqrt3}(12-x^2)^{3/2}\,dx .
+    \]
+    Sustituimos $x=2\sqrt3\sin\varphi$, con $dx=2\sqrt3\cos\varphi\,d\varphi$ y
+    $12-x^2=12\cos^2\varphi$, de modo que $(12-x^2)^{3/2}=12^{3/2}\cos^3\varphi=24\sqrt3\cos^3\varphi$.
+    Los límites son $\varphi=0$ y $\varphi=\pi/2$. Entonces
+    \[
+        \int_0^{2\sqrt3}(12-x^2)^{3/2}dx = \int_0^{\pi/2} 24\sqrt3\cos^3\varphi\cdot 2\sqrt3\cos\varphi\,d\varphi
+        = 144\int_0^{\pi/2}\cos^4\varphi\,d\varphi .
+    \]
+    Con la identidad $\cos^4\varphi=\frac{3+4\cos2\varphi+\cos4\varphi}{8}$ se tiene
+    $\int_0^{\pi/2}\cos^4\varphi\,d\varphi=\frac{3}{8}\cdot\frac{\pi}{2}=\frac{3\pi}{16}$
+    (los términos con coseno se anulan al evaluar en $0$ y en $\pi/2$). Entonces la integral
+    vale $144\cdot\frac{3\pi}{16}=27\pi$ y
+    \[
+        V = \frac{2}{3\sqrt3}\cdot 27\pi = \frac{18\pi}{\sqrt3} = 6\sqrt3\,\pi .
+    \]
+
+    \medskip
+    Los dos órdenes dan $V=6\sqrt{3}\,\pi\approx 32.65$, así que los límites de las tres
+    integrales son consistentes.
+
+    
 \end{respuesta}
