@@ -64,4 +64,45 @@
     Si entramos desde el origen y subimos verticalmente hasta $z=4$\\
     $\longrightarrow \rho = \frac{4}{Cos \phi}$\\ Por lo tanto 
     $\int_{?}^{?} \int_{?}^{?} \int_{0}^{\frac{4}{Cos \phi}} g(\rho, \varphi, \theta)\, \rho^2 \sin\varphi\, d\rho\, d\varphi\, d\theta$ \\
+
+    \texttt{*Limites para $\phi$}\\
+    Como el cono tiene centro en el origen, el limite inferior es cero\\
+    Para determinar el angulo que se forma en la region, podemos empezar formando  un trangulo rectangulo entre el origen con el punto $(2,0,4)$ y el radio de la base del cono como se muestra en la imagen
+    %Grafica%
+    Por lo tanto para determinar el valor del angulo $\phi$ tenemos que obtener el valor del arcotangente, se sigue que\\
+    $c_a= 4$\\
+    $c_o=2$\\
+    $\longrightarrow \tan \phi = \frac{c_o}{c_a}= \frac{2}{4}=\frac{1}{2}$\\
+    $\longrightarrow \phi = \arctan\frac{1}{2}$\\
+
+    De este modo tenemos los limites para $\phi$\\
+    $\int_{?}^{?} \int_{0}^{\arctan\frac{1}{2}} \int_{0}^{\frac{4}{Cos \phi}} g(\rho, \varphi, \theta)\, \rho^2 \sin\varphi\, d\rho\, d\varphi\, d\theta$ \\
+
+    \texttt{*Limites para $\theta$}\\
+    Este caso es analogo a lo que ocurre en las coordenadas cilindricas\\Por lo tanto, los limtes para la ecuacion 4 son los siguientes:\\
+    $\int_{0}^{2\pi} \int_{0}^{\arctan\frac{1}{2}} \int_{0}^{\frac{4}{Cos \phi}} g(\rho, \varphi, \theta)\, \rho^2 \sin\varphi\, d\rho\, d\varphi\, d\theta$ \\
+
+    \textbf{Ecuacion 5 / Coordenadas cartesianas}\\
+    \textit{Notemos que la integral mas externa es con respecto a z, como la region $W$ es un cono, su diamentro no es constante,depende de el valor de $z$ por lo que para resolver este ejercicio, es conveniente comenzar definiendo los limites para $z$ puesto que tanto $x$ y $y$ dependen del valor de dicha variable. }\\
+
+    \texttt{*Limites para z}\\
+    Si partimos desde el origen hasta la altura maxima del cono, tenemos que:\\
+    $\int_{?}^{?} \int_{?}^{?} \int_{0}^{4} h(x, y, z)\, dx\, dy\, dz$\\
+
+
+    \texttt{*Limites para y}\\
+    Al inicio del ejercicio vimos que $z = 2\sqrt{x^ + y^2}$. Podemos realizar un proceso algrbraico para logra que esta ecucion se parezca a la ecuacion de un circulo.\\
+    $z = \sqrt{x^2 + y^2}$\\
+    $z^2 = (\sqrt{x^2 + y^2})^2$\\
+    $z^2 = 4(x^2 + y^2)$\\
+    $\frac{z^2}{4} = x^2 + y^2$\\
+    Notemos que este ultimo resultado representa la ecuacion de una circunferencia con rado $r= \frac{z}{2}$\\
+    Veamos ahora que pasa cuando el valor de $x=0$\\
+    $\frac{z^2}{4} = y^2$\\
+    $y^2 = \sqrt{\frac{z^2}{4}}$\\
+    $y = \sqrt{\frac{z}{2}}$\\
+
+    Por lo que los limites de $y$ para cada valor de la altura de la region van desde $-\frac{z}{2}$ hasta $\frac{z}{2}$\\
+    De este modo
+
 \end{respuesta}
