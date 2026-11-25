@@ -6,5 +6,59 @@
 \end{ejercicio}
 
 \begin{respuesta}
-     \textbf{Integrantes involucrados: Diego Hernandez Vazquez, }
+En el problema tenemos un area en un cuarto de: 
+\[
+A=5(5)=25\text{ m}^2.
+\]
+Para la temperatura promedio podemos utilizar la formula de la integral doble de una función sobre una region pero tomando en cuenta el promedio, entonces la formula es: 
+\[
+T_{\mathrm{prom}}=\frac{1}{A}\iint_R T(x,y)\,dA=\frac{1}{25}\iint_R T(x,y)\,dA .
+\]
+Una cosa que debemos tomar en cuenta es que no tenemos a $T(x,y)$ de forma explicita entonces por medio de las sumas de Rienmann podemos dar un aproximado, entonces utilizamos la formula:
+\[
+\iint_R T(x,y)\,dA\approx\sum_{i=1}^{m}\sum_{j=1}^{n}T(x_{ij}^*,y_{ij}^*)\,\Delta A
+\]
+En donde \((x_{ij}^*,y_{ij}^*)\) son los puntos de muestra, en donde tomamos la temperatura aproximada en el centro de los cuadradoss y \(T(x_{ij}^*,y_{ij}^*)\) es la temperatura leída en ese punto mediante las curvas de nivel. Entonces al tomar nuestro cuadrado lo mulitplicamps por \(\Delta A\) y al final vamos sumandolos a todos.
+
+\\ \textbf{Primera estimación.} Para esto tomamos la division que ya tenemos la cual tiene $25$ cuadrados de $1\times1$ m
+($\Delta A=1$) y tomamos el valor aproximado que tiene cada uno en su centro respecto a su temperatura: 
+
+\[
+\begin{array}{c|ccccc|c}
+y\backslash x & 0.5 & 1.5 & 2.5 & 3.5 & 4.5 & \text{Suma de la fila}\\\hline
+0.5 & 28.5 & 27.7 & 27.0 & 26.5 & 26.1 & 135.8\\
+1.5 & 27.3 & 26.7 & 26.2 & 25.8 & 25.5 & 131.5\\
+2.5 & 26.2 & 25.7 & 25.4 & 25.1 & 24.9 & 127.3\\
+3.5 & 25.1 & 24.5 & 24.2 & 23.9 & 24.1 & 121.8\\
+4.5 & 24.3 & 23.3 & 22.4 & 22.3 & 23.2 & 115.5\\\hline
+\multicolumn{6}{r|}{\text{Suma total}} & 631.9\approx 632
+\end{array}
+\]
+
+La suma de los 25 valores es $632$, por lo que:
+\[
+\iint_R T\,dA\approx 632(1)=632
+\quad\Rightarrow\quad
+T_{\mathrm{prom}}\approx\frac{632}{25}\approx{25.3^\circ C}.
+\]
+
+\textbf{Segunda estimación.} Otra cosa que podriamos hacer es dividir nuestra cuadricula  en 4 cuadrados de 2.5 x 2.5, es decir cada cuadrado tendra ($\Delta A= 6.25$), tomamos la temperatura aproximada en sus centros de cada uno y entonces nos queda: 
+\[
+\begin{array}{c|c}
+\text{Centro} & T\ (^\circ C)\\\hline
+(1.25,\,1.25) & 27\\
+(3.75,\,1.25) & 26\\
+(1.25,\,3.75) & 24\\
+(3.75,\,3.75) & 23
+\end{array}
+\]
+
+\[
+\iint_R T\,dA\approx 6.25\,(27+26+24+23)=6.25(100)=625
+\quad\Rightarrow\quad
+T_{\mathrm{prom}}\approx\frac{625}{25}={25^\circ C}.
+\]
+
+Consideramos que para lograr una estimación más precisa, debemos tener una partición mucho más pequeña, ya que esto pues nos podria permitir hacer que el error en nuestra suma de Riemann disminuya ya que los datos se han sacado basado en nuestra suposicion ya que no todos los cuadritos tenian una curva justo pasando por su centro. Otra cosa sería tener un mayor número de curvas de nivel, ya sea teniendo una cada medio grado, es decir, cada (0.5^\circ C\), para obtener lecturas más precisas respecto a la temperatura en cualquier sector de nuestra partición.También sería útil tomar mediciones directas de temperatura en los puntos de muestra, en lugar de estimarlas a ojo a partir de las curvas. 
+     \textbf{Integrantes involucrados: Diego Hernandez Vazquez, Alan Blancas Ochoa}
 \end{respuesta}
