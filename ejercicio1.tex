@@ -1,10 +1,165 @@
 \begin{ejercicio}
-    En la siguiente figura se pueden apreciar las curvas de nivel de $f(x, y)$. Tomemos el rectángulo $R$ como la región $-0.5 \leq x \leq 1$, $-0.5 \leq y \leq 1$. ¿La integral $\displaystyle\iint_R f(x, y)\, dA$ es positiva o negativa? Expliquen su razonamiento.
-    
-    Propongan otra región rectangular $S$ y apliquen el mismo razonamiento que hayan elaborado para la región $R$. ¿Qué pueden decir al respecto de su región $S$ propuesta?
+    En la siguiente figura se pueden apreciar las curvas de nivel de $f(x, y)$.
+    Tomemos el rectángulo $R$ como la región $-0.5 \leq x \leq 1$, $-0.5 \leq y \leq 1$.
+    ¿La integral $\displaystyle\iint_R f(x, y)\, dA$ es positiva o negativa?
+    Expliquen su razonamiento.
+
+    Propongan otra región rectangular $S$ y apliquen el mismo razonamiento que hayan
+    elaborado para la región $R$. ¿Qué pueden decir al respecto de su región $S$ propuesta?
 \end{ejercicio}
 
 \begin{respuesta}
-    \textbf{Integrantes involucrados: }
-  
+    \textbf{Integrantes involucrados: Ernesto Alonso Carranza Ochoa}
+
+    \bigskip
+    Como no tenemos una fórmula para $f$, no podemos calcular la
+    integral asi   directamente, lo que sí se puede hacer es usar la definición de la integral
+    doble como límite de sumas de Riemann:
+    \[
+        \iint_R f(x,y)\, dA \;\approx\; \sum_{i=1}^{m}\sum_{j=1}^{n} f(x_i^*, y_j^*)\,\Delta A ,
+    \]
+    donde $R$ se parte en $m\cdot n$ subrectángulos, cada uno de área $\Delta A$, y
+    $(x_i^*, y_j^*)$ es un punto cualquiera para cada subrectángulo. Los valores de $f$
+    se van a leer de las curvas de nivel, entonces el signo de la integral depende de
+    dos cosas: qué valores toma $f$ en $R$ (positivos o negativos) y cuánta área de $R$
+    ocupa cada tipo de valor.
+
+    \bigskip
+    El paso 1 es leer la figura, las curvas de nivel están etiquetadas con los valores
+    $-1,\,0,\,1,\,2,\,3,\,4$, es decir, van de uno en uno, con esto podemos ver que:
+    \begin{itemize}
+        \item Cerca del origen hay curvas casi circulares con los valores más grandes
+              ($3$ y $4$). Dentro de la curva más interna, $f$ es todavía mayor que $4$.
+        \item Al alejarnos del origen los valores bajan: pasamos por $2$, $1$ y $0$.
+        \item Hacia la parte de arriba a la derecha aparece la curva de nivel $-1$ y
+              la región que ella encierra tiene valores cercanos o menores a $-1$.
+              Esta es la única zona de la figura donde $f$ es negativa.
+    \end{itemize}
+
+
+    \bigskip
+    El paso 2 es el Area de $R$, el rectángulo mide $1-(-0.5)=1.5$ de ancho y
+    $1-(-0.5)=1.5$ de alto, entonces
+    \[
+        A(R) = 1.5 \cdot 1.5 = 2.25 .
+    \]
+
+    El paso 3 es partir $R$ en subrectángulos asi que tomamos $m=n=3$. Entonces
+    \[
+        \Delta x = \frac{1-(-0.5)}{3} = 0.5, \qquad
+        \Delta y = \frac{1-(-0.5)}{3} = 0.5, \qquad
+        \Delta A = \Delta x \,\Delta y = 0.25 .
+    \]
+    Los intervalos en $x$ son $[-0.5,0]$, $[0,0.5]$ y $[0.5,1]$, y en $y$ son los mismos.
+    Como punto de muestra usamos el punto medio de cada subrectángulo, o sea
+    $x^*\in\{-0.25,\,0.25,\,0.75\}$ y $y^*\in\{-0.25,\,0.25,\,0.75\}$.
+    Por ejemplo, el punto medio de $[0,0.5]$ es $\frac{0+0.5}{2}=0.25$, y el de
+    $[0.5,1]$ es $\frac{0.5+1}{2}=0.75$.
+
+    \begin{center}
+    \begin{tikzpicture}[scale=3]
+        \draw[step=0.5, gray!50, very thin] (-0.5,-0.5) grid (1,1);
+        \draw[thick, colorprimario] (-0.5,-0.5) rectangle (1,1);
+        \draw[->] (-0.65,0) -- (1.15,0) node[right] {$x$};
+        \draw[->] (0,-0.65) -- (0,1.15) node[above] {$y$};
+        \foreach \x in {-0.5,0,0.5,1} \node[below, font=\scriptsize] at (\x,-0.5) {$\x$};
+        \foreach \y in {-0.5,0,0.5,1} \node[left, font=\scriptsize] at (-0.5,\y) {$\y$};
+        \draw[dashed, colorsecundario] (0,0) circle (0.4);
+        \node[font=\small] at (-0.25,0.75) {$\approx 2$};
+        \node[font=\small] at (0.25,0.75) {$\approx 1$};
+        \node[font=\small] at (0.75,0.75) {$\approx -1$};
+        \node[font=\small] at (-0.25,0.25) {$\approx 4$};
+        \node[font=\small] at (0.25,0.25) {$\approx 4$};
+        \node[font=\small] at (0.75,0.25) {$\approx 0$};
+        \node[font=\small] at (-0.25,-0.25) {$\approx 4$};
+        \node[font=\small] at (0.25,-0.25) {$\approx 4$};
+        \node[font=\small] at (0.75,-0.25) {$\approx 1$};
+    \end{tikzpicture}
+
+    \small Valores de $f$ estimados en el centro de cada subrectángulo.
+    La curva punteada es aproximadamente la curva de nivel más interna.
+    \end{center}
+
+    El paso 4 es ya la suma de Riemann asi que sumamos los nueve valores de la figura anterior:
+    \[
+        \underbrace{(2+1-1)}_{y^*=0.75} + \underbrace{(4+4+0)}_{y^*=0.25}
+        + \underbrace{(4+4+1)}_{y^*=-0.25} = 2 + 8 + 9 = 19 .
+    \]
+    Entonces
+    \[
+        \iint_R f(x,y)\, dA \;\approx\; 19 \cdot \Delta A = 19\cdot 0.25 = 4.75 > 0 .
+    \]
+    Si dividimos entre el área, el valor promedio de $f$ en $R$ sale
+    $f_{\text{prom}} \approx 4.75/2.25 \approx 2.1$, que es positivo y está entre los
+    valores $1$ y $3$ de la figura, lo cual si tiene sentido.
+
+    \bigskip
+    El paso 5 seria ver si esta correcto el resultado, entonces checamos la lectura de la figura que es
+    aproximada, entonces conviene revisar qué pasa en el peor de los casos. Las cuatro celdas
+    centrales (las que rodean al origen) tienen valores de al menos $3$. Entonces
+    aportan al menos
+    \[
+        4 \cdot 3 \cdot 0.25 = 3 .
+    \]
+    Las otras cinco celdas son las que podrían ser negativas. En la figura no aparece
+    ninguna curva de nivel con valor menor a $-1$ dentro de $R$, así que podemos suponer
+    que en ellas $f > -2$. Aun si las cinco valieran $-2$, aportarían como mucho
+    \[
+        5 \cdot (-2) \cdot 0.25 = -2.5 .
+    \]
+    Sumando, $3 - 2.5 = 0.5 > 0$. Esto es demasiado malo ya que en la realidad varias de esas
+    celdas son positivas, pero aun así la suma sigue siendo positiva. Por lo tanto no
+    es un accidente si se puede decir asi de cómo leímos la gráfica.
+
+    
+        
+        \textbf{Conclusión para $R$:} la integral $\displaystyle\iint_R f\, dA$ es
+        \textbf{positiva}. La parte de $R$ donde $f$ es negativa es chica y sus valores
+        son cercanos a $-1$, mientras que la parte positiva ocupa la mayor parte de $R$
+        e incluye los valores más altos (alrededor del origen).
+   
+
+    \bigskip
+    \textbf{Región $S$ propuesta.} Tomamos
+    \[
+        S = [-0.25,\,0.25]\times[-0.25,\,0.25], \qquad A(S) = 0.5 \cdot 0.5 = 0.25 .
+    \]
+
+    \begin{center}
+    \begin{tikzpicture}[scale=4]
+        \draw[->] (-0.6,0) -- (0.7,0) node[right] {$x$};
+        \draw[->] (0,-0.6) -- (0,0.7) node[above] {$y$};
+        \draw[dashed, colorsecundario] (0,0) circle (0.4);
+        \draw[thick, colorprimario, fill=colorprimario!15] (-0.25,-0.25) rectangle (0.25,0.25);
+        \node[font=\small] at (0,0) {$S$};
+        \node[font=\scriptsize, colorsecundario] at (0.38,0.34) {$f>4$};
+        \fill (0.25,0.25) circle (0.4pt);
+        \node[font=\scriptsize, right] at (0.25,0.25) {$(0.25,\,0.25)$};
+    \end{tikzpicture}
+    \end{center}
+
+    La esquina más lejana del origen en $S$ es $(0.25,0.25)$, y su
+    distancia al origen es
+    \[
+        \sqrt{0.25^2 + 0.25^2} = \sqrt{0.125} \approx 0.35 .
+    \]
+    La curva de nivel más interna tiene radio aproximado de $0.4$, y $0.35 < 0.4$, así
+    que los cuatro vértices de $S$ (y por lo tanto todo $S$, porque el cuadrado es convexo)
+    quedan adentro de esa curva. Ahí $f$ es mayor que $4$. Entonces, usando una sola
+    celda en la suma de Riemann, con $m = n = 1$:
+    \[
+        \iint_S f(x,y)\, dA \;\geq\; 4 \cdot A(S) = 4\cdot 0.25 = 1 > 0 .
+    \]
+
+    Lo que podemos decir de $S$:
+    \begin{itemize}
+        \item La integral sobre $S$ es positiva, como $f$ tiene el mismo signo en todo $S$, no hay forma de que haya cancelación entre partes positivas y negativas.
+        \item Sólo podemos dar una \emph{cota inferior} ($\geq 1$). La figura no dice qué
+              tan grande es $f$ adentro de la curva de nivel $4$, así que no hay cota
+              superior con los datos que tenemos.
+        \item Esto contrasta con $R$: en $R$ hay valores positivos y negativos, entonces
+              tuvimos que comparar cuánto pesa cada parte (valor $\times$ área) para
+              decidir el signo. En $S$ basta con ver que toda la región está en una zona
+              de un solo signo.
+    \end{itemize}
 \end{respuesta}
